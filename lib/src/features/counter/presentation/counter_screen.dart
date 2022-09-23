@@ -6,7 +6,7 @@ import 'counter_screen_controller.dart';
 class CounterScreen extends StatelessWidget {
   const CounterScreen({super.key});
 
-  static String route = '/counter';
+  static const route = '/counter';
 
   @override
   Widget build(BuildContext context) {

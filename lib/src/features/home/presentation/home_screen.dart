@@ -3,7 +3,7 @@ import 'home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-  static String route = '/';
+  static const route = '/';
 
   @override
   Widget build(BuildContext context) {

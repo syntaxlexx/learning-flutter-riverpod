@@ -5,7 +5,7 @@ import 'providers_screen_controller.dart';
 
 class ProvidersScreen extends ConsumerWidget {
   const ProvidersScreen({super.key});
-  static String route = '/providers';
+  static const route = '/providers';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -107,7 +107,8 @@ class ProvidersScreen extends ConsumerWidget {
             const SizedBox(
               height: 20,
             ),
-            Text('State Notifier Autodisposed Provider: $stateNotifierAutodisposed'),
+            Text(
+                'State Notifier Autodisposed Provider: $stateNotifierAutodisposed'),
             const SizedBox(
               height: 5,
             ),
