@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'features/counter/presentation/counter_screen.dart';
+import 'features/counter/presentation/timer_screen.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
 
@@ -14,6 +15,9 @@ Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {
     case CounterScreen.route:
       return PageTransition(
           child: const CounterScreen(), type: PageTransitionType.bottomToTop);
+    case TimerScreen.route:
+      return PageTransition(
+          child: const TimerScreen(), type: PageTransitionType.bottomToTop);
     default:
       break;
   }

@@ -13,7 +13,7 @@ class CounterScreen extends StatelessWidget {
     print('CounterScreen.build');
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Counter App'),
+        title: const Text('Auto-Disposed Counter App'),
       ),
       body: Center(
         child: Column(
@@ -83,6 +83,7 @@ class TimerCountdown extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     print('TimerCountdown.build');
+
     return StreamBuilder(
       stream: _numbers,
       builder: (context, snapshot) {
