@@ -7,7 +7,8 @@
         {
             "name": "riverpod_counter",
             "request": "launch",
-            "type": "dart"
+            "type": "dart",
+            "deviceId": "chrome"
         },
         {
             "name": "riverpod_counter (profile mode)",

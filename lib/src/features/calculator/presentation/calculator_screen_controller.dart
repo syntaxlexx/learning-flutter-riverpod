@@ -1,143 +1,114 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:math_expressions/math_expressions.dart';
 
-// first number
-final firstNumberProvider = StateNotifierProvider<FirstNumberNotifier, String>(
-    (ref) => FirstNumberNotifier(''));
+import '../domain/calculator.dart';
 
-class FirstNumberNotifier extends StateNotifier<String> {
-  FirstNumberNotifier(super.state);
-
-  void set(String value) {
-    state = value;
-  }
+class CalcColors {
+  static const Color background1 = Color(0Xff22252d);
+  static const Color background2 = Color(0xff292d36);
+  static const Color background3 = Color(0xff272b33);
+  static const Color operators = Color(0xfff57b7b);
+  static const Color delete = Color(0xff26f4ce);
+  static const Color numbers = Colors.white;
 }
 
-// second number
-final secondNumberProvider =
-    StateNotifierProvider.autoDispose<SecondNumberNotifier, String>(
-        (ref) => SecondNumberNotifier(''));
+class Utils {
+  static bool isOperator(String buttonText, {bool hasEquals = false}) {
+    final operators = [
+      '+',
+      '-',
+      '/',
+      '÷',
+      'x',
+      '.',
+      if (hasEquals) ...['=']
+    ];
 
-class SecondNumberNotifier extends StateNotifier<String> {
-  SecondNumberNotifier(super.state);
-
-  void set(String value) {
-    state = value;
+    return operators.contains(buttonText);
   }
-}
 
-// operator
-final operatorProvider =
-    StateNotifierProvider.autoDispose<OperatorNotifier, String>(
-        (ref) => OperatorNotifier(''));
-
-class OperatorNotifier extends StateNotifier<String> {
-  OperatorNotifier(super.state);
-
-  void set(String value) {
-    state = value;
-  }
-}
-
-// display for the current calculation
-final displayProvider =
-    StateNotifierProvider.autoDispose<DisplayNotifier, String>(
-        (ref) => DisplayNotifier(''));
-
-class DisplayNotifier extends StateNotifier<String> {
-  DisplayNotifier(super.state);
-
-  void set(String value) {
-    state = value;
-  }
-}
-
-final resultsProvider =
-    StateNotifierProvider.autoDispose<CalculationResults, String>(
-        (ref) => CalculationResults(ref));
-
-class CalculationResults extends StateNotifier<String> {
-  CalculationResults(this.ref) : super('');
-
-  final Ref ref;
-
-  calculate(String value) {
-    value = value.toLowerCase();
-    final first = ref.read(firstNumberProvider);
-    final second = ref.read(secondNumberProvider);
-    final operator = ref.read(operatorProvider);
-    final display = ref.read(displayProvider);
-
-    if (value.toLowerCase() == 'c') {
-      // reset all values
-      ref.refresh(firstNumberProvider);
-      ref.refresh(secondNumberProvider);
-      ref.refresh(operatorProvider);
-      ref.refresh(displayProvider);
-
-      state = '';
-      return;
+  static bool isOperatorAtEnd(String equation) {
+    if (equation.isNotEmpty) {
+      return Utils.isOperator(equation.substring(equation.length - 1));
     }
+    return false;
+  }
+}
 
-    if (['+', '-', '/', 'x'].contains(value)) {
-      // ensure the first number exists first
-      print('state: $state');
-      ref.read(firstNumberProvider.notifier).set(state);
-      ref.read(operatorProvider.notifier).set(value);
-      ref.read(displayProvider.notifier).set('$state $value');
-      state = ''; // reset state back
+final calculatorProvider =
+    StateNotifierProvider<CalculatorNotifier, Calculator>(
+        (ref) => CalculatorNotifier());
 
-      print('op: $operator');
-      print('first: $first');
-      print('display: $display');
+class CalculatorNotifier extends StateNotifier<Calculator> {
+  CalculatorNotifier() : super(const Calculator());
 
-      return;
-    }
+  void append(String buttonText) {
+    final equation = () {
+      if (Utils.isOperator(buttonText) &&
+          Utils.isOperatorAtEnd(state.equation)) {
+        final newEquation =
+            state.equation.substring(0, state.equation.length - 1);
 
-    if (value == '=') {
-      print('op: $operator');
-      print('first: $first');
-      print('display: $display');
-
-      if (operator.isEmpty) {
-        return;
+        return newEquation + buttonText;
+      } else if (state.shouldAppend) {
+        return state.equation == '0' ? buttonText : state.equation + buttonText;
       }
 
-      // assign second number to current state
-      ref.read(secondNumberProvider.notifier).state = state;
-      ref.read(displayProvider.notifier).state =
-          '$display $state ='; // 10 + 3 =
+      return Utils.isOperator(buttonText)
+          ? state.equation + buttonText
+          : buttonText;
+    }();
 
-      double result = 0.0;
+    state = state.copy(equation: equation, shouldAppend: true);
+    calculate();
+  }
 
-      switch (operator.toLowerCase()) {
-        case 'x':
-          result = (int.parse(first.toString()) * int.parse(second.toString()))
-              as double;
-          state = result.toStringAsFixed(0);
-          break;
-        case '-':
-          result = (int.parse(first.toString()) - int.parse(second.toString()))
-              as double;
-          state = result.toStringAsFixed(0);
-          break;
-        case '/':
-          result = (int.parse(first.toString()) / int.parse(second.toString()));
-          state = result.toStringAsFixed(2);
-          break;
-        case '+':
-          result = (int.parse(first.toString()) + int.parse(second.toString()))
-              as double;
-          state = result.toStringAsFixed(0);
-          break;
+  void delete() {
+    final equation = state.equation;
+
+    if (equation.isNotEmpty) {
+      final newEquation = equation.substring(0, equation.length - 1);
+
+      if (newEquation.isEmpty) {
+        reset();
+      } else {
+        state = state.copy(equation: newEquation);
+        calculate();
       }
-
-      ref.read(displayProvider.notifier).state =
-          '$display $state'; // 10 + 3 = 5
-
-      return;
     }
+  }
 
-    // else user pressed a number that should be concatenated
-    state = '$state$value';
+  void equals() {
+    calculate();
+    resetResult();
+  }
+
+  void calculate() {
+    // replace illegal expressions
+    final expression = state.equation.replaceAll('x', '*').replaceAll('÷', '/');
+
+    try {
+      final exp = Parser().parse(expression);
+      final model = ContextModel();
+
+      final result = '${exp.evaluate(EvaluationType.REAL, model)}';
+      // copy current object with everything it had before, and set only results field
+      state = state.copy(result: result);
+      // ignore: empty_catches
+    } catch (e) {}
+  }
+
+  void reset() {
+    const equation = '0';
+    const result = '0';
+
+    state = state.copy(equation: equation, result: result);
+  }
+
+  void resetResult() {
+    final equation = state.result;
+
+    state = state.copy(equation: equation, shouldAppend: false);
   }
 }
