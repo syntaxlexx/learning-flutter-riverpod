@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
 import '../../counter/presentation/timer_screen.dart';
@@ -21,6 +22,11 @@ class HomeScreenController {
       title: 'Providers',
       icon: const Icon(Icons.gif),
       route: ProvidersScreen.route,
+    ),
+    Entry(
+      title: 'Calculator',
+      icon: const Icon(Icons.calculate),
+      route: CalculatorScreen.route,
     ),
   ];
 

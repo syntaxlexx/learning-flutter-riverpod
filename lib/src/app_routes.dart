@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'features/calculator/presentation/calculator_screen.dart';
 import 'features/counter/presentation/counter_screen.dart';
 import 'features/counter/presentation/timer_screen.dart';
 import 'features/home/presentation/home_screen.dart';
@@ -8,6 +9,7 @@ import 'features/providers/presentation/providers_screen.dart';
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),
   ProvidersScreen.route: (context) => const ProvidersScreen(),
+  CalculatorScreen.route: (context) => const CalculatorScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {
