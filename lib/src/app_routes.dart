@@ -4,12 +4,14 @@ import 'features/calculator/presentation/calculator_screen.dart';
 import 'features/counter/presentation/counter_screen.dart';
 import 'features/counter/presentation/timer_screen.dart';
 import 'features/home/presentation/home_screen.dart';
+import 'features/network_status/presentation/network_status_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),
   ProvidersScreen.route: (context) => const ProvidersScreen(),
   CalculatorScreen.route: (context) => const CalculatorScreen(),
+  NetworkStatusScreen.route: (context) => const NetworkStatusScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {

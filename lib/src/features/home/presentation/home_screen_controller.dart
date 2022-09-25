@@ -3,6 +3,7 @@ import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
 import '../../counter/presentation/timer_screen.dart';
+import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
 import '../domain/models/entry.dart';
 
@@ -10,7 +11,7 @@ class HomeScreenController {
   final List<Entry> _entries = [
     Entry(
       title: 'Providers',
-      icon: const Icon(Icons.gif),
+      icon: const Icon(Icons.shopping_cart),
       route: ProvidersScreen.route,
     ),
     Entry(
@@ -27,6 +28,11 @@ class HomeScreenController {
       title: 'Calculator',
       icon: const Icon(Icons.calculate),
       route: CalculatorScreen.route,
+    ),
+    Entry(
+      title: 'Network Status',
+      icon: const Icon(Icons.network_check),
+      route: NetworkStatusScreen.route,
     ),
   ];
 

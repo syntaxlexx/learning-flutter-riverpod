@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../common_widgets/connectivity_warning.dart';
 import 'home_screen_controller.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,18 +12,21 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Flutter Riverpod Mobbin Zone'),
       ),
-      body: ListView.builder(
-        itemCount: HomeScreenController().entries.length,
-        itemBuilder: (context, index) {
-          final item = HomeScreenController().entries[index];
-
-          return ListTile(
-            title: Text(item.title),
-            leading: item.icon,
-            trailing: const Icon(Icons.chevron_right),
-            onTap: () => Navigator.pushNamed(context, item.route),
-          );
-        },
+      body: ListView(
+        children: [
+          const ConnectivityWarning(),
+          Column(
+            children: HomeScreenController()
+                .entries
+                .map((item) => ListTile(
+                      title: Text(item.title),
+                      leading: item.icon,
+                      trailing: const Icon(Icons.chevron_right),
+                      onTap: () => Navigator.pushNamed(context, item.route),
+                    ))
+                .toList(),
+          ),
+        ],
       ),
     );
   }
