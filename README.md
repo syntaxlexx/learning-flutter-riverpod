@@ -1,6 +1,20 @@
-# riverpod_counter
+# Flutter Riverpod Learning/Reference zone
 
-A new Flutter project.
+A Null-Safety flutter project acting as a learning/code reference zone
+
+Based on
+- Riverpod (v1/v2)
+- Page Transitions
+- Math Expressions
+- Flex Color Scheme
+
+![Screenshot 1](_files/screenshot-1.jpg)
+![Screenshot 2](_files/screenshot-2.jpg)
+
+### Resources
+1. [App Structure by Code With Andrea](https://codewithandrea.com/articles/flutter-app-architecture-riverpod-introduction/)
+2. [Feature-first or layer-first?](https://codewithandrea.com/articles/flutter-project-structure/)
+3. [Riverpod Docs](https://riverpod.dev/docs/getting_started/)
 
 ## Getting Started
 

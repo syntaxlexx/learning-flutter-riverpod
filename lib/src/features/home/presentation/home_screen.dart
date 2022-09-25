@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Riverpod Tests'),
+        title: const Text('Flutter Riverpod Mobbin Zone'),
       ),
       body: ListView.builder(
         itemCount: HomeScreenController().entries.length,
