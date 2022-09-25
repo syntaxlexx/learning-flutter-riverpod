@@ -9,6 +9,11 @@ import '../domain/models/entry.dart';
 class HomeScreenController {
   final List<Entry> _entries = [
     Entry(
+      title: 'Providers',
+      icon: const Icon(Icons.gif),
+      route: ProvidersScreen.route,
+    ),
+    Entry(
       title: 'Counter App',
       icon: const Icon(Icons.timer),
       route: CounterScreen.route,
@@ -17,11 +22,6 @@ class HomeScreenController {
       title: 'Timer with Alert',
       icon: const Icon(Icons.timer_10_select),
       route: TimerScreen.route,
-    ),
-    Entry(
-      title: 'Providers',
-      icon: const Icon(Icons.gif),
-      route: ProvidersScreen.route,
     ),
     Entry(
       title: 'Calculator',

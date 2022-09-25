@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:math_expressions/math_expressions.dart';
 
-import '../domain/calculator.dart';
+import '../domain/models/calculator.dart';
 
 class CalcColors {
   static const Color background1 = Color(0Xff22252d);
