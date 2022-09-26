@@ -5,6 +5,7 @@ import '../../counter/presentation/counter_screen.dart';
 import '../../counter/presentation/timer_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
+import '../../stopwatch/presentation/stopwatch_screen.dart';
 import '../domain/models/entry.dart';
 
 class HomeScreenController {
@@ -33,6 +34,11 @@ class HomeScreenController {
       title: 'Network Status',
       icon: const Icon(Icons.network_check),
       route: NetworkStatusScreen.route,
+    ),
+    Entry(
+      title: 'Stopwatch',
+      icon: const Icon(Icons.timelapse_rounded),
+      route: StopwatchScreen.route,
     ),
   ];
 

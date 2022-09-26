@@ -6,12 +6,14 @@ import 'features/counter/presentation/timer_screen.dart';
 import 'features/home/presentation/home_screen.dart';
 import 'features/network_status/presentation/network_status_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
+import 'features/stopwatch/presentation/stopwatch_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),
   ProvidersScreen.route: (context) => const ProvidersScreen(),
   CalculatorScreen.route: (context) => const CalculatorScreen(),
   NetworkStatusScreen.route: (context) => const NetworkStatusScreen(),
+  StopwatchScreen.route: (context) => const StopwatchScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {
