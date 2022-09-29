@@ -31,4 +31,5 @@ samples, guidance on mobile development, and a full API reference.
 
 ### Links
 - [StopWatch](https://medium.com/flutter-community/flutter-riverpod-tutorial-timer-app-186d04637775)
+- [Trivia](https://youtube.com/watch?v=H2uEIRNM7TE)
 

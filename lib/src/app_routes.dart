@@ -7,6 +7,7 @@ import 'features/home/presentation/home_screen.dart';
 import 'features/network_status/presentation/network_status_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
 import 'features/stopwatch/presentation/stopwatch_screen.dart';
+import 'features/trivia/presentation/trivia_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),
@@ -14,6 +15,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   CalculatorScreen.route: (context) => const CalculatorScreen(),
   NetworkStatusScreen.route: (context) => const NetworkStatusScreen(),
   StopwatchScreen.route: (context) => const StopwatchScreen(),
+  TriviaScreen.route: (context) => const TriviaScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {

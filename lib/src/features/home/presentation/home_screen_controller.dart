@@ -6,6 +6,7 @@ import '../../counter/presentation/timer_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
 import '../../stopwatch/presentation/stopwatch_screen.dart';
+import '../../trivia/presentation/trivia_screen.dart';
 import '../domain/models/entry.dart';
 
 class HomeScreenController {
@@ -39,6 +40,11 @@ class HomeScreenController {
       title: 'Stopwatch',
       icon: const Icon(Icons.timelapse_rounded),
       route: StopwatchScreen.route,
+    ),
+    Entry(
+      title: 'Trivia',
+      icon: const Icon(Icons.question_answer),
+      route: TriviaScreen.route,
     ),
   ];
 
