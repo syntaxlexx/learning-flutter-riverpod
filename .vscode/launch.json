@@ -11,6 +11,11 @@
             "deviceId": "chrome"
         },
         {
+            "name": "riverpod_counter (device)",
+            "request": "launch",
+            "type": "dart",
+        },
+        {
             "name": "riverpod_counter (profile mode)",
             "request": "launch",
             "type": "dart",

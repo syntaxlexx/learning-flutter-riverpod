@@ -29,7 +29,7 @@ class Question extends Equatable {
       correctAnswer:
           map['correct_answer'] != null ? map['correct_answer'].toString() : '',
       answers: List<String>.from(map['incorrect_answers'] as List)
-        ..add(map['correct_answer']! as String)
+        ..add('${map['correct_answer']}')
         ..shuffle(),
     );
   }

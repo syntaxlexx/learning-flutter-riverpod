@@ -18,8 +18,16 @@ class MyApp extends ConsumerWidget {
       initialRoute: '/',
       routes: appRoutes,
       onGenerateRoute: (settings) => appGeneratedRoutes(settings),
-      theme: FlexThemeData.light(scheme: FlexScheme.dellGenoa),
-      darkTheme: FlexThemeData.dark(scheme: FlexScheme.dellGenoa),
+      theme: FlexThemeData.light(scheme: FlexScheme.dellGenoa).copyWith(
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: Colors.transparent,
+        ),
+      ),
+      darkTheme: FlexThemeData.dark(scheme: FlexScheme.dellGenoa).copyWith(
+        bottomSheetTheme: const BottomSheetThemeData(
+          backgroundColor: Colors.transparent,
+        ),
+      ),
       themeMode: ThemeMode.light,
     );
   }

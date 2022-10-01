@@ -39,9 +39,10 @@ class TriviaScreen extends HookConsumerWidget {
         backgroundColor: Colors.transparent,
         body: quizQuestions.when(
           data: (questions) => BuildQuestions(
-              context: context,
-              pageController: pageController,
-              questions: questions),
+            context: context,
+            pageController: pageController,
+            questions: questions,
+          ),
           loading: () => const Center(
             child: CircularProgressIndicator(),
           ),
