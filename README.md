@@ -29,6 +29,19 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+
+#### Launcher Icons
+```bash
+flutter pub run flutter_launcher_icons:main
+```
+
+#### Updating Splash Image
+Using the `flutter_native_splash` package
+
+```bash
+flutter pub run flutter_native_splash:create
+```
+
 ### Links
 - [StopWatch](https://medium.com/flutter-community/flutter-riverpod-tutorial-timer-app-186d04637775)
 - [Trivia](https://youtube.com/watch?v=H2uEIRNM7TE)

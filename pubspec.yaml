@@ -31,8 +31,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
-  # Dependencies
   confetti: ^0.7.0
   connectivity_plus: ^2.3.7
   cupertino_icons: ^1.0.2
@@ -41,6 +39,8 @@ dependencies:
   equatable: ^2.0.5
   flex_color_scheme: ^6.0.1
   flutter_hooks: ^0.18.5+1
+  flutter_launcher_icons: ^0.10.0
+  flutter_native_splash: ^2.2.10+1
   flutter_riverpod: ^1.0.4
   hooks_riverpod: ^1.0.4
   html_character_entities: ^1.0.0+1
@@ -71,8 +71,9 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/images/
+    - assets/lottie/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -100,3 +101,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/images/logo.png"
+
+flutter_native_splash:
+  # color: #d05d5e
+  background_image: "assets/images/splash.png"
