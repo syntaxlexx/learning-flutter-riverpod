@@ -1,6 +1,6 @@
 {
-    "name": "riverpod_counter",
-    "short_name": "riverpod_counter",
+    "name": "learning_flutter_riverpod",
+    "short_name": "learning_flutter_riverpod",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
