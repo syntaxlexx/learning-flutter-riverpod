@@ -43,6 +43,7 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   flutter_native_splash: ^2.2.10+1
   flutter_riverpod: ^1.0.4
+  hive: ^2.2.3
   hooks_riverpod: ^1.0.4
   html_character_entities: ^1.0.0+1
   logger: ^1.1.0
@@ -50,6 +51,7 @@ dependencies:
   meta: ^1.8.0
   page_transition: ^2.0.9
   web_socket_channel: ^2.2.0
+  hive_flutter: ^1.1.0
 
 dev_dependencies:
   flutter_test:

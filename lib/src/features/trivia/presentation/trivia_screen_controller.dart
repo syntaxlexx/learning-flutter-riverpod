@@ -49,7 +49,8 @@ class QuizNotifier extends StateNotifier<QuizState> {
 
 final quizQuiestionsProvider = FutureProvider.autoDispose<List<Question>>(
   (ref) => ref.watch(quizRepositoryProvider).getQuestions(
-      numQuestions: 5,
-      categoryId: Random().nextInt(24) + 9,
-      difficulty: Difficulty.any),
+        numQuestions: 5,
+        categoryId: Random().nextInt(24) + 9,
+        difficulty: Difficulty.any,
+      ),
 );
