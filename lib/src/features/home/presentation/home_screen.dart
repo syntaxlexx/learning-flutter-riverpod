@@ -18,12 +18,14 @@ class HomeScreen extends StatelessWidget {
           Column(
             children: HomeScreenController()
                 .entries
-                .map((item) => ListTile(
-                      title: Text(item.title),
-                      leading: item.icon,
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.pushNamed(context, item.route),
-                    ))
+                .map(
+                  (item) => ListTile(
+                    title: Text(item.title),
+                    leading: item.icon,
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Navigator.pushNamed(context, item.route),
+                  ),
+                )
                 .toList(),
           ),
         ],

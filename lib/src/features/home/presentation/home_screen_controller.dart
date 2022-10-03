@@ -3,6 +3,7 @@ import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
 import '../../counter/presentation/timer_screen.dart';
+import '../../movies/presentation/movies_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
 import '../../stopwatch/presentation/stopwatch_screen.dart';
@@ -51,6 +52,11 @@ class HomeScreenController {
       title: 'Websockets',
       icon: const Icon(Icons.wifi_tethering),
       route: WebsocketsScreen.route,
+    ),
+    Entry(
+      title: 'Movies',
+      icon: const Icon(Icons.movie),
+      route: MoviesScreen.route,
     ),
   ];
 
