@@ -4,6 +4,7 @@ import 'features/calculator/presentation/calculator_screen.dart';
 import 'features/counter/presentation/counter_screen.dart';
 import 'features/counter/presentation/timer_screen.dart';
 import 'features/home/presentation/home_screen.dart';
+import 'features/movies/presentation/movies_paginated_screen.dart';
 import 'features/movies/presentation/movies_screen.dart';
 import 'features/network_status/presentation/network_status_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
@@ -20,6 +21,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   TriviaScreen.route: (context) => const TriviaScreen(),
   WebsocketsScreen.route: (context) => const WebsocketsScreen(),
   MoviesScreen.route: (context) => const MoviesScreen(),
+  MoviesPaginatedScreen.route: (context) => const MoviesPaginatedScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {

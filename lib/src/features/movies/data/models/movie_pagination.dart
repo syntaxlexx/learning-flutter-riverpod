@@ -10,7 +10,12 @@ class MoviePagination {
   final int page;
   final String errorMessage;
 
-  bool get refreshErrpr => errorMessage != '' && movies.length <= 20;
+  MoviePagination.initial()
+      : movies = [],
+        page = 1,
+        errorMessage = '';
+
+  bool get refreshError => errorMessage != '' && movies.length <= 20;
 
   MoviePagination({
     required this.movies,

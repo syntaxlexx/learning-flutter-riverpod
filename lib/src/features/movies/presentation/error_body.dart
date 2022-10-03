@@ -19,7 +19,7 @@ class ErrorBody extends ConsumerWidget {
             height: 20,
           ),
           ElevatedButton(
-            onPressed: () => ref.refresh(moviesFutureProvider),
+            onPressed: () => ref.refresh(moviesPaginationNotifierProvider.notifier).getMovies(),
             child: const Text('Try again'),
           )
         ],

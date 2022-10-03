@@ -19,10 +19,10 @@ class MovieService {
 
   MovieService(this._environmentConfig, this._dio);
 
-  Future<List<Movie>> getMovies() async {
+  Future<List<Movie>> getMovies([int page = 1]) async {
     try {
       final url =
-          '$moviesUrl/popular?api_key=${_environmentConfig.movieApiKey}&language=en-US&page=1';
+          '$moviesUrl/popular?api_key=${_environmentConfig.movieApiKey}&language=en-US&page=$page';
       final response = await _dio.get(url);
 
       final results =

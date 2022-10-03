@@ -3,6 +3,7 @@ import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
 import '../../counter/presentation/timer_screen.dart';
+import '../../movies/presentation/movies_paginated_screen.dart';
 import '../../movies/presentation/movies_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
@@ -57,6 +58,11 @@ class HomeScreenController {
       title: 'Movies',
       icon: const Icon(Icons.movie),
       route: MoviesScreen.route,
+    ),
+    Entry(
+      title: 'Movies (Paginated)',
+      icon: const Icon(Icons.list),
+      route: MoviesPaginatedScreen.route,
     ),
   ];
 
