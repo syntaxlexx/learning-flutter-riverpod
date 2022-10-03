@@ -47,11 +47,6 @@ class HomeScreenController {
       icon: const Icon(Icons.question_answer),
       route: TriviaScreen.route,
     ),
-    Entry(
-      title: 'Google Ads',
-      icon: const Icon(Icons.ad_units),
-      route: GoogleAdsScreen.route,
-    ),
   ];
 
   List<Entry> get entries => _entries;
