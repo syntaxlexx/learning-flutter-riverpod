@@ -7,6 +7,7 @@ import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
 import '../../stopwatch/presentation/stopwatch_screen.dart';
 import '../../trivia/presentation/trivia_screen.dart';
+import '../../websockets/presentation/websockets_screen.dart';
 import '../domain/models/entry.dart';
 
 class HomeScreenController {
@@ -45,6 +46,11 @@ class HomeScreenController {
       title: 'Trivia',
       icon: const Icon(Icons.question_answer),
       route: TriviaScreen.route,
+    ),
+    Entry(
+      title: 'Websockets',
+      icon: const Icon(Icons.wifi_tethering),
+      route: WebsocketsScreen.route,
     ),
   ];
 
