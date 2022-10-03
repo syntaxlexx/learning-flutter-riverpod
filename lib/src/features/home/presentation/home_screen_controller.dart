@@ -3,6 +3,7 @@ import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
 import '../../counter/presentation/timer_screen.dart';
+import '../../google_ads/presentation/google_ads_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
 import '../../stopwatch/presentation/stopwatch_screen.dart';
@@ -45,6 +46,11 @@ class HomeScreenController {
       title: 'Trivia',
       icon: const Icon(Icons.question_answer),
       route: TriviaScreen.route,
+    ),
+    Entry(
+      title: 'Google Ads',
+      icon: const Icon(Icons.ad_units),
+      route: GoogleAdsScreen.route,
     ),
   ];
 

@@ -1,9 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.learning_flutter_riverpod">
-   <application
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
         android:label="learning_flutter_riverpod"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -30,5 +34,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2934030828925003~4957329233"/>
+
     </application>
 </manifest>
