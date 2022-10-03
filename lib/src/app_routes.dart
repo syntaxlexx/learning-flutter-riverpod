@@ -8,6 +8,7 @@ import 'features/movies/presentation/movies_paginated_screen.dart';
 import 'features/movies/presentation/movies_screen.dart';
 import 'features/network_status/presentation/network_status_screen.dart';
 import 'features/providers/presentation/providers_screen.dart';
+import 'features/settings/presentation/settings_screen.dart';
 import 'features/stopwatch/presentation/stopwatch_screen.dart';
 import 'features/trivia/presentation/trivia_screen.dart';
 import 'features/websockets/presentation/websockets_screen.dart';
@@ -22,6 +23,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   WebsocketsScreen.route: (context) => const WebsocketsScreen(),
   MoviesScreen.route: (context) => const MoviesScreen(),
   MoviesPaginatedScreen.route: (context) => const MoviesPaginatedScreen(),
+  SettingsScreen.route: (context) => const SettingsScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {

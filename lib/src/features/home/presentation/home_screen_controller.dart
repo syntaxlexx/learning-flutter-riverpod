@@ -7,6 +7,7 @@ import '../../movies/presentation/movies_paginated_screen.dart';
 import '../../movies/presentation/movies_screen.dart';
 import '../../network_status/presentation/network_status_screen.dart';
 import '../../providers/presentation/providers_screen.dart';
+import '../../settings/presentation/settings_screen.dart';
 import '../../stopwatch/presentation/stopwatch_screen.dart';
 import '../../trivia/presentation/trivia_screen.dart';
 import '../../websockets/presentation/websockets_screen.dart';
@@ -63,6 +64,11 @@ class HomeScreenController {
       title: 'Movies (Paginated)',
       icon: const Icon(Icons.list),
       route: MoviesPaginatedScreen.route,
+    ),
+    Entry(
+      title: 'Settings',
+      icon: const Icon(Icons.settings),
+      route: SettingsScreen.route,
     ),
   ];
 

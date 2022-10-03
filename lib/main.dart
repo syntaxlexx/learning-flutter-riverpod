@@ -5,6 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'src/app_routes.dart';
+import 'src/features/settings/providers/theme_provider.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -23,6 +24,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final darkMode = ref.watch(darkThemeProvider);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
@@ -38,7 +41,7 @@ class MyApp extends ConsumerWidget {
           backgroundColor: Colors.transparent,
         ),
       ),
-      themeMode: ThemeMode.light,
+      themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
     );
   }
 }
