@@ -1,11 +1,8 @@
-import 'dart:io';
-
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'src/app_routes.dart';
@@ -17,6 +14,7 @@ void main() async {
   await dotenv.load(fileName: '.env');
   await Hive.initFlutter();
   await Hive.openBox('settings');
+  await Hive.openBox('auth');
 
   // api getters
   // now hide splash screen

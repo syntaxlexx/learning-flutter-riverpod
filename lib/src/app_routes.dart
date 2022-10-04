@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'features/auth/presentation/dashboard_screen.dart';
+import 'features/auth/presentation/auth_screen.dart';
 import 'features/calculator/presentation/calculator_screen.dart';
 import 'features/counter/presentation/counter_screen.dart';
 import 'features/counter/presentation/timer_screen.dart';
@@ -24,6 +26,8 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   MoviesScreen.route: (context) => const MoviesScreen(),
   MoviesPaginatedScreen.route: (context) => const MoviesPaginatedScreen(),
   SettingsScreen.route: (context) => const SettingsScreen(),
+  AuthScreen.route: (context) => const AuthScreen(),
+  DashboardScreen.route: (context) => const DashboardScreen(),
 };
 
 Route<dynamic>? appGeneratedRoutes(RouteSettings settings) {

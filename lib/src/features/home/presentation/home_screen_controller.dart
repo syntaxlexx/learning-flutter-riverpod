@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../auth/presentation/auth_screen.dart';
 import '../../calculator/presentation/calculator_screen.dart';
 import '../../counter/presentation/counter_screen.dart';
 
@@ -69,6 +70,11 @@ class HomeScreenController {
       title: 'Settings',
       icon: const Icon(Icons.settings),
       route: SettingsScreen.route,
+    ),
+    Entry(
+      title: 'Auth',
+      icon: const Icon(Icons.home),
+      route: AuthScreen.route,
     ),
   ];
 

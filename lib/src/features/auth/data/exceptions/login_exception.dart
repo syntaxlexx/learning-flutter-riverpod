@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 
-class MoviesException implements Exception {
+class LoginException implements Exception {
   String? message;
 
-  MoviesException.fromDioError(DioError dioError) {
+  LoginException({this.message});
+
+  LoginException.fromDioError(DioError dioError) {
     switch (dioError.type) {
       case DioErrorType.cancel:
         message = 'Request to API server was cancelled';
