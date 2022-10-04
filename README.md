@@ -9,6 +9,7 @@ Based on
 - Flex Color Scheme
 
 ![Screenshot 1](_files/screenshot-1.jpg)
+![Screenshot 3](_files/screenshot-3.jpg)
 ![Screenshot 2](_files/screenshot-2.jpg)
 
 ### Resources

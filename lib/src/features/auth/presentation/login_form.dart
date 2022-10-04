@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:validators/validators.dart';
 
 import 'auth_screen_controller.dart';
+import '../../../utils/context_snackbar.dart';
 
 class LoginForm extends StatefulHookConsumerWidget {
   const LoginForm({Key? key}) : super(key: key);
@@ -14,6 +16,20 @@ class LoginForm extends StatefulHookConsumerWidget {
 
 class _LoginFormState extends ConsumerState<LoginForm> {
   final _formKey = GlobalKey<FormState>();
+
+  String demoLogin = 'eve.holt@reqres.in';
+  String demoPassword = 'cityslicka';
+
+  Future<void> _launchInBrowser(Uri url) async {
+    print('huhi');
+    if (!await launchUrl(
+      url,
+      mode: LaunchMode.externalApplication,
+    )) {
+      print('url');
+      context.showSnackBar(context, message: 'Could not launch URL: $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +66,10 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                           ? null
                           : 'Provide a valid email';
                     },
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Email',
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -63,6 +83,10 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                           ? null
                           : 'Provide a valid password of more than 4 characters';
                     },
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Password',
+                    ),
                   ),
                   const SizedBox(
                     height: 15,
@@ -112,6 +136,45 @@ class _LoginFormState extends ConsumerState<LoginForm> {
                           ],
                         )
                       : Container(),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  InkWell(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Get login data from ',
+                            style: Theme.of(context).textTheme.bodyLarge),
+                        Text(
+                          'https://reqres.in',
+                          style:
+                              Theme.of(context).textTheme.bodyLarge!.copyWith(
+                                    decoration: TextDecoration.underline,
+                                    color: Colors.blue.shade500,
+                                  ),
+                        ),
+                      ],
+                    ),
+                    onTap: () =>
+                        _launchInBrowser(Uri.parse('https://reqres.in')),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Card(
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          SelectableText(demoLogin),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          SelectableText(demoPassword),
+                        ],
+                      ),
+                    ),
+                  )
                 ],
               ),
             ),

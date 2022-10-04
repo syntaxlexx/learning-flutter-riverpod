@@ -4,7 +4,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:label="learning_flutter_riverpod"
+        android:label="Learning Riverpod"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
 
