@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'src/app_routes.dart';
+import 'src/common_widgets/error_screen.dart';
 import 'src/features/settings/data/providers/theme_provider.dart';
 import 'src/utils/contants.dart';
 
@@ -36,6 +37,11 @@ class MyApp extends ConsumerWidget {
       initialRoute: '/',
       routes: appRoutes,
       onGenerateRoute: (settings) => appGeneratedRoutes(settings),
+      onUnknownRoute: (settings) => MaterialPageRoute(
+        builder: (context) => ErrorScreen(
+          name: settings.name,
+        ),
+      ),
       theme: FlexThemeData.light(scheme: theme.scheme).copyWith(
         bottomSheetTheme: const BottomSheetThemeData(
           backgroundColor: Colors.transparent,

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 
+import 'common_widgets/error_screen.dart';
 import 'features/auth/ui/auth_screen.dart';
 import 'features/auth/ui/dashboard_screen.dart';
 import 'features/calculator/ui/calculator_screen.dart';
@@ -18,6 +19,7 @@ import 'features/websockets/ui/websockets_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),
+  ErrorScreen.route: (context) => ErrorScreen(),
   ProvidersScreen.route: (context) => const ProvidersScreen(),
   CalculatorScreen.route: (context) => const CalculatorScreen(),
   NetworkStatusScreen.route: (context) => const NetworkStatusScreen(),
