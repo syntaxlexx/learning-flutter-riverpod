@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'features/auth/presentation/dashboard_screen.dart';
-import 'features/auth/presentation/auth_screen.dart';
-import 'features/calculator/presentation/calculator_screen.dart';
-import 'features/counter/presentation/counter_screen.dart';
-import 'features/counter/presentation/timer_screen.dart';
-import 'features/home/presentation/home_screen.dart';
-import 'features/movies/presentation/movies_paginated_screen.dart';
-import 'features/movies/presentation/movies_screen.dart';
-import 'features/network_status/presentation/network_status_screen.dart';
-import 'features/providers/presentation/providers_screen.dart';
-import 'features/settings/presentation/settings_screen.dart';
-import 'features/stopwatch/presentation/stopwatch_screen.dart';
-import 'features/trivia/presentation/trivia_screen.dart';
-import 'features/websockets/presentation/websockets_screen.dart';
+
+import 'features/auth/ui/auth_screen.dart';
+import 'features/auth/ui/dashboard_screen.dart';
+import 'features/calculator/ui/calculator_screen.dart';
+import 'features/counter/ui/counter_screen.dart';
+import 'features/counter/ui/timer_screen.dart';
+import 'features/home/ui/home_screen.dart';
+import 'features/movies/ui/movies_paginated_screen.dart';
+import 'features/movies/ui/movies_screen.dart';
+import 'features/network_status/ui/network_status_screen.dart';
+import 'features/providers/ui/providers_screen.dart';
+import 'features/settings/ui/settings_screen.dart';
+import 'features/stopwatch/ui/stopwatch_screen.dart';
+import 'features/trivia/ui/trivia_screen.dart';
+import 'features/websockets/ui/websockets_screen.dart';
 
 final Map<String, Widget Function(BuildContext)> appRoutes = {
   HomeScreen.route: (context) => const HomeScreen(),

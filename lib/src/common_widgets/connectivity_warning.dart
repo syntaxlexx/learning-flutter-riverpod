@@ -1,18 +1,21 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../features/network_status/presentation/network_status_screen_controller.dart';
+import '../features/network_status/providers/network_status_provider.dart';
 
 class ConnectivityWarning extends ConsumerWidget {
   const ConnectivityWarning({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    print('ConnectivityWarning.build');
+    if (kDebugMode) {
+      print('ConnectivityWarning.build');
+    }
 
     var network = ref.watch(networkAwareProvider);
 
-    return network == NetworkStatus.Off
+    return network == NetworkStatus.off
         ? Container(
             padding: const EdgeInsets.all(16),
             height: 60,
