@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+import '../../../../utils/contants.dart';
 import '../enums/auth_status.dart';
 import '../exceptions/login_exception.dart';
 import '../models/auth_state.dart';
@@ -24,7 +25,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
 
   Future<void> checkAuthStatus() async {
     // check storage for existing token/user
-    final box = Hive.box('auth');
+    final box = Hive.box(Constants.authStorageKey);
     final token = box.get('token');
     final user = box.get('user');
 
@@ -55,7 +56,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
 
       final user = User(email: email, name: email.split('@').first);
 
-      final box = Hive.box('auth');
+      final box = Hive.box(Constants.authStorageKey);
       await box.put('token', token);
       await box.put('user', user.toJson());
 
@@ -90,7 +91,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     // do some API stuff
     await Future.delayed(const Duration(milliseconds: 300));
 
-    final box = Hive.box('auth');
+    final box = Hive.box(Constants.authStorageKey);
     await box.delete('token');
     await box.delete('user');
 

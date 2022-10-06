@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../common_widgets/connectivity_warning.dart';
-import 'home_screen_controller.dart';
+import '../../../utils/contants.dart';
+import '../data/providers/home_provider.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -10,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Riverpod Mobbin Zone'),
+        title: const Text(Constants.appName),
       ),
       body: ListView(
         children: [

@@ -6,15 +6,16 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'src/app_routes.dart';
-import 'src/features/settings/providers/theme_provider.dart';
+import 'src/features/settings/data/providers/theme_provider.dart';
+import 'src/utils/contants.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
   await dotenv.load(fileName: '.env');
   await Hive.initFlutter();
-  await Hive.openBox('settings');
-  await Hive.openBox('auth');
+  await Hive.openBox(Constants.settingsStorageKey); // settings
+  await Hive.openBox(Constants.authStorageKey); // auth
 
   // api getters
   // now hide splash screen
@@ -28,24 +29,24 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final darkMode = ref.watch(darkThemeProvider);
+    final theme = ref.watch(themeProvider);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
       routes: appRoutes,
       onGenerateRoute: (settings) => appGeneratedRoutes(settings),
-      theme: FlexThemeData.light(scheme: FlexScheme.dellGenoa).copyWith(
+      theme: FlexThemeData.light(scheme: theme.scheme).copyWith(
         bottomSheetTheme: const BottomSheetThemeData(
           backgroundColor: Colors.transparent,
         ),
       ),
-      darkTheme: FlexThemeData.dark(scheme: FlexScheme.dellGenoa).copyWith(
+      darkTheme: FlexThemeData.dark(scheme: theme.scheme).copyWith(
         bottomSheetTheme: const BottomSheetThemeData(
           backgroundColor: Colors.transparent,
         ),
       ),
-      themeMode: darkMode ? ThemeMode.dark : ThemeMode.light,
+      themeMode: theme.mode,
     );
   }
 }

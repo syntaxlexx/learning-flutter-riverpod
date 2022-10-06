@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../auth/ui/auth_screen.dart';
-import '../../calculator/ui/calculator_screen.dart';
-import '../../counter/ui/counter_screen.dart';
+import '../../../auth/ui/auth_screen.dart';
+import '../../../calculator/ui/calculator_screen.dart';
+import '../../../counter/ui/counter_screen.dart';
 
-import '../../counter/ui/timer_screen.dart';
-import '../../movies/ui/movies_paginated_screen.dart';
-import '../../movies/ui/movies_screen.dart';
-import '../../network_status/ui/network_status_screen.dart';
-import '../../providers/ui/providers_screen.dart';
-import '../../settings/ui/settings_screen.dart';
-import '../../stopwatch/ui/stopwatch_screen.dart';
-import '../../trivia/ui/trivia_screen.dart';
-import '../../websockets/ui/websockets_screen.dart';
-import '../data/models/entry.dart';
+import '../../../counter/ui/timer_screen.dart';
+import '../../../movies/ui/movies_paginated_screen.dart';
+import '../../../movies/ui/movies_screen.dart';
+import '../../../network_status/ui/network_status_screen.dart';
+import '../../../providers/ui/providers_screen.dart';
+import '../../../settings/ui/settings_screen.dart';
+import '../../../stopwatch/ui/stopwatch_screen.dart';
+import '../../../trivia/ui/trivia_screen.dart';
+import '../../../websockets/ui/websockets_screen.dart';
+import '../models/entry.dart';
 
 class HomeScreenController {
   final List<Entry> _entries = [
