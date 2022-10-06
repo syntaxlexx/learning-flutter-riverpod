@@ -30,7 +30,7 @@ For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
-> NB: To view Google Ads, switch to the `googleads` branch as it does not work with the `web`: only `android/ios` devices.
+> NB: To view Google Ads, switch to the `googleads` branch as it does not work with the `web` version.
 
 #### Launcher Icons
 ```bash
@@ -62,7 +62,7 @@ Changes include:
 - `enums` moved to `data`. For a **Clean architecture**, it would be better keeping all enums on their own and not in providers. It becomes easier to maintain the project in the long run.
 - Merged `application`, `domain`, `controllers/providers` -> `data`. Any state has been separated from the `ui`. Any piece of state/logic has been moved out of the `presentation`/`ui` folder.
 - Any form `TextEditingController` be used inside a `StatefulHookConsumerWidget` via `useTextEditingController`. **Riverpod Hooks** combined with **Flutter Hooks** are a fantastic way for handling such use-cases. Same goes for animations, pageControllers, e.t.c. found in the flutter hooks package. **Form Validation** can be done via the `validators` package, or for more complex validation, the *providers* can handle that (StateNotifiers) - Or however you deem fit :man_shrugging:
-- Inside the `ui`, any **Screen** must be suffixed with `Screen` e.g. `OrdersScreen`. Any other widget should be viewed as a `partial/widget/fragment` to the main screen, and, therefore, can be re-used multiple times in the entire project - not just by the feature. Screens, on th eothe rhand, cannot be re-used in other widgets.
+- Inside the `ui`, any **Screen** must be suffixed with `Screen` e.g. `OrdersScreen`. Any other widget should be viewed as a `partial/widget/fragment` to the main screen, and, therefore, can be re-used multiple times in the entire project - not just by the feature. Screens, on the other hand, **cannot** be re-used in other widgets.
 - **Flexibility**: 
     - If a `feature` only requires a screen and a provider, the folder structure then can be:
         - ui 
