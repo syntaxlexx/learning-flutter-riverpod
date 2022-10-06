@@ -52,6 +52,8 @@ However, after building several prototypes (small quick apps), the structure fee
 
 The latest architecture features a *somewhat better and more flexible* architecture, offering a sweet spot between **feature-first**, **layer-first**, and **Code with Andreas's** architectures.
 
+>NB: Check the real folder structure contained in this project for a better visual understanding.
+
 Changes include:
 - Renamed `presentation` -> `ui`: No need to name the `presentation` layer `presentation`. It's too lengthy and what we hate as devs is writing too much!
 - Renamed `controllers` -> `providers`. We're dealing with providers after all, aren't we?
@@ -60,6 +62,7 @@ Changes include:
 - `enums` moved to `data`. For a **Clean architecture**, it would be better keeping all enums on their own and not in providers. It becomes easier to maintain the project in the long run.
 - Merged `application`, `domain`, `controllers/providers` -> `data`. Any state has been separated from the `ui`. Any piece of state/logic has been moved out of the `presentation`/`ui` folder.
 - Any form `TextEditingController` be used inside a `StatefulHookConsumerWidget` via `useTextEditingController`. **Riverpod Hooks** combined with **Flutter Hooks** are a fantastic way for handling such use-cases. Same goes for animations, pageControllers, e.t.c. found in the flutter hooks package. **Form Validation** can be done via the `validators` package, or for more complex validation, the *providers* can handle that (StateNotifiers) - Or however you deem fit :man_shrugging:
+- Inside the `ui`, any **Screen** must be suffixed with `Screen` e.g. `OrdersScreen`. Any other widget should be viewed as a `partial/widget/fragment` to the main screen, and, therefore, can be re-used multiple times in the entire project - not just by the feature. Screens, on th eothe rhand, cannot be re-used in other widgets.
 - **Flexibility**: 
     - If a `feature` only requires a screen and a provider, the folder structure then can be:
         - ui 
@@ -107,6 +110,8 @@ For apps that have an **admin** and **user** dashboard, this architecture gets i
             - invoices
 
 and each fature can then follow the guidelines above. The `ui` and `data` can now be tested individually.
+
+>NB: Check the real folder structure contained in this project for a better visual understanding.
 
 ### Links
 - [StopWatch](https://medium.com/flutter-community/flutter-riverpod-tutorial-timer-app-186d04637775)
