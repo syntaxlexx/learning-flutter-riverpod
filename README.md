@@ -64,21 +64,21 @@ Changes include:
 - Any form `TextEditingController` be used inside a `StatefulHookConsumerWidget` via `useTextEditingController`. **Riverpod Hooks** combined with **Flutter Hooks** are a fantastic way for handling such use-cases. Same goes for animations, pageControllers, e.t.c. found in the flutter hooks package. **Form Validation** can be done via the `validators` package, or for more complex validation, the *providers* can handle that (StateNotifiers) - Or however you deem fit :man_shrugging:
 - Inside the `ui`, any **Screen** must be suffixed with `Screen` e.g. `OrdersScreen`. Any other widget should be viewed as a `partial/widget/fragment` to the main screen, and, therefore, can be re-used multiple times in the entire project - not just by the feature. Screens, on the other hand, **cannot** be re-used in other widgets.
 - **Flexibility**: 
-    - If a `feature` only requires a screen and a provider, the folder structure then can be:
+    - If a `feature` only requires a screen and a provider, the folder structure can then be:
         - ui 
         - providers
-    - If a `feature` requires a screen, a provider, and a state/model/state notifier class, the folder structure then can be: 
+    - If a `feature` requires a screen, a provider, and a state/model/stateNotifier class, the folder structure can then be: 
         - ui
         - data
             - providers
             - models
-    - If a `feature` requires a screen, a provider, a state/model/state notifier class, and enums, the folder structure then can be: 
+    - If a `feature` requires a screen, a provider, a state/model/stateNotifier class, and enums, the folder structure can then be: 
         - ui
         - data
             - providers
             - models
             - enums
-    - If a `feature` requires a screen, a provider, a state/model/state notifier class, enum, and repository, the folder structure then can be: 
+    - If a `feature` requires a screen, a provider, a state/model/stateNotifier class, enum, and repository, the folder structure can then be: 
         - ui
         - data
             - providers
