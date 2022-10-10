@@ -87,7 +87,7 @@ Changes include:
             - repositories
             - exceptions
 
-For apps that have an **admin** and **user** dashboard, this architecture gets in line with the current architecture:
+For apps that have an **admin** and **user** dashboard, this architecture gets in line with the following architecture:
 - main.dart
 - src
     - app_routes.dart
