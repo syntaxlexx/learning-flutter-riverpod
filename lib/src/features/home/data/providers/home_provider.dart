@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../auth/ui/auth_screen.dart';
 import '../../../calculator/ui/calculator_screen.dart';
 import '../../../counter/ui/counter_screen.dart';
@@ -7,6 +8,7 @@ import '../../../counter/ui/timer_screen.dart';
 import '../../../movies/ui/movies_paginated_screen.dart';
 import '../../../movies/ui/movies_screen.dart';
 import '../../../network_status/ui/network_status_screen.dart';
+import '../../../products/ui/products_screen.dart';
 import '../../../providers/ui/providers_screen.dart';
 import '../../../settings/ui/settings_screen.dart';
 import '../../../stopwatch/ui/stopwatch_screen.dart';
@@ -14,8 +16,8 @@ import '../../../trivia/ui/trivia_screen.dart';
 import '../../../websockets/ui/websockets_screen.dart';
 import '../models/entry.dart';
 
-class HomeScreenController {
-  final List<Entry> _entries = [
+final homeMenuEntriesProvider = StateProvider<List<Entry>>((ref) {
+  return [
     Entry(
       title: 'Providers',
       icon: const Icon(Icons.shopping_cart),
@@ -67,6 +69,11 @@ class HomeScreenController {
       route: MoviesPaginatedScreen.route,
     ),
     Entry(
+      title: 'Products (Pagination via StateNotifier)',
+      icon: const Icon(Icons.shopping_cart),
+      route: ProductsScreen.route,
+    ),
+    Entry(
       title: 'Settings',
       icon: const Icon(Icons.settings),
       route: SettingsScreen.route,
@@ -77,8 +84,4 @@ class HomeScreenController {
       route: AuthScreen.route,
     ),
   ];
-
-  List<Entry> get entries => _entries;
-}
-
-// final homeScreenProvider = StateProvider.autoDispose((ref) => Counter());
+});

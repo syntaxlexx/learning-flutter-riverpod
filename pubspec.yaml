@@ -42,7 +42,6 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   flutter_launcher_icons: ^0.10.0
   flutter_native_splash: ^2.2.10+1
-  flutter_riverpod: ^1.0.4
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   hooks_riverpod: ^1.0.4
@@ -54,6 +53,7 @@ dependencies:
   url_launcher: ^6.1.6
   validators: ^3.0.0
   web_socket_channel: ^2.2.0
+  fade_shimmer: ^2.2.0
 
 dev_dependencies:
   flutter_test:

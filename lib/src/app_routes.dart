@@ -11,6 +11,7 @@ import 'features/home/ui/home_screen.dart';
 import 'features/movies/ui/movies_paginated_screen.dart';
 import 'features/movies/ui/movies_screen.dart';
 import 'features/network_status/ui/network_status_screen.dart';
+import 'features/products/ui/products_screen.dart';
 import 'features/providers/ui/providers_screen.dart';
 import 'features/settings/ui/settings_screen.dart';
 import 'features/stopwatch/ui/stopwatch_screen.dart';
@@ -28,6 +29,7 @@ final Map<String, Widget Function(BuildContext)> appRoutes = {
   WebsocketsScreen.route: (context) => const WebsocketsScreen(),
   MoviesScreen.route: (context) => const MoviesScreen(),
   MoviesPaginatedScreen.route: (context) => const MoviesPaginatedScreen(),
+  ProductsScreen.route: (context) => ProductsScreen(),
   SettingsScreen.route: (context) => const SettingsScreen(),
   AuthScreen.route: (context) => const AuthScreen(),
   DashboardScreen.route: (context) => const DashboardScreen(),
