@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:enum_to_string/enum_to_string.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../enums/difficulty.dart';
 import '../models/failure.dart';
@@ -16,7 +16,7 @@ final quizRepositoryProvider =
     Provider<QuizRepository>((ref) => QuizRepository(ref.read));
 
 class QuizRepository extends BaseRepository {
-  final Reader _read;
+  final _read;
 
   QuizRepository(this._read);
 
