@@ -54,6 +54,8 @@ dependencies:
   validators: ^3.0.0
   web_socket_channel: ^2.2.0
   fade_shimmer: ^2.2.0
+  rating_dialog: ^2.0.4
+  avatar_glow: ^2.0.2
 
 dev_dependencies:
   flutter_test:
